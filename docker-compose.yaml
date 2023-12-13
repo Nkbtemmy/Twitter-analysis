@@ -1,0 +1,15 @@
+version: "3.0"
+
+services:
+  "twitter-analysis-app":
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: prod
+    image: "twitter-analysis-app"
+    container_name: "twitter-analysis-app"
+    ports:
+      - "3006:3006"
+    env_file:
+      - .env
+    restart: on-failure

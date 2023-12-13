@@ -1,0 +1,6 @@
+{
+	"ignore": ["node_modules"],
+	"watch": ["src", "yarn.lock", "package.json"],
+	"exec": "ts-node ./src/server.ts",
+	"ext": "js, json, ts"
+}
