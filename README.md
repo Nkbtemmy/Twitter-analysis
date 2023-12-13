@@ -2,7 +2,7 @@
 Twitter analysis built using N-Tier architecture 
 
 # Project Overview
-This backend project is built using a Node.js/Express application with TypeScript. It includes development tools like Nodemon for auto-reloading during development and Docker for containerized deployment. Additionally, it integrates Swagger for API documentation.
+This backend project is built using a Node.js/Express application with TypeScript. It includes development tools like Nodemon for auto-reloading during development and Docker for containerized deployment. Additionally, it integrates Swagger for API documentation and Jest for testing.
 
 ## Prerequisites
 
