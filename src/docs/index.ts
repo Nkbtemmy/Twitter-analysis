@@ -18,7 +18,7 @@ const config = {
 	swagger: "2.0",
 	info: {
 		version: "1.0.0.",
-		title: "twitter-analysis-app APIs Documentation",
+		title: "Twitter-analysis-app APIs Documentation",
 		description: "",
 	},
 	servers: [
