@@ -2,7 +2,7 @@
 Twitter analysis built using N-Tier architecture 
 
 # Project Overview
-This backend project is built using a Node.js/Express application using TypeScript. It includes development tools like Nodemon for auto-reloading during development and Docker for containerized deployment. Additionally, it integrates Swagger for API documentation.
+This backend project is built using a Node.js/Express application with TypeScript. It includes development tools like Nodemon for auto-reloading during development and Docker for containerized deployment. Additionally, it integrates Swagger for API documentation.
 
 ## Prerequisites
 
@@ -11,6 +11,7 @@ Before you begin testing, ensure you have met the following requirements:
 - Node.js and npm installed locally
 - Docker installed (for containerized deployment)
 - PostgreSQL database installed
+- Make installed
 - Basic knowledge of TypeScript, Node.js, and Express
 
 ## Getting Started
