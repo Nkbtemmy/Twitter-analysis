@@ -1,31 +1,33 @@
 version: "3"
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: dev
-    image: "twitter-analysis-app"
-    restart: on-failure
-    ports:
-      - "2025:2025"
-    env_file:
-      - .env
-    environment:
-      HOST: app:2025
-      PORT: 2025
-      DATABASE_URL: postgres://POSTGRES_USER:POSTGRES_PASSWORD@postgres_db:5432/POSTGRES_DB
+  # app:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #     target: dev
+  #   image: "twitter-analysis-app"
+  #   restart: on-failure
+  #   ports:
+  #     - "2025:2025"
+  #   env_file:
+  #     - .env
+  #   environment:
+  #     HOST: app:2025
+  #     PORT: 2025
+  #     DATABASE_URL: postgres://POSTGRES_USER:POSTGRES_PASSWORD@postgres_db:5432/POSTGRES_DB
 
-    depends_on:
-      - postgres_db
-    volumes:
-      - .:/usr/src/
-    networks:
-      - storefront-networks
+  #   depends_on:
+  #     - postgres_db
+  #   volumes:
+  #     - .:/usr/src/
+  #   networks:
+  #     - storefront-networks
 
   postgres_db:
     image: postgres
     restart: on-failure
+    ports:
+      - "5434:5432"
     environment:
       - POSTGRES_DB=POSTGRES_DB
       - POSTGRES_USER=POSTGRES_USER
@@ -34,6 +36,19 @@ services:
       - POSTGRES_HOST_AUTH_METHOD=trust
     volumes:
       - postgres_data:/var/lib/postgresql/data/
+    networks:
+      - storefront-networks
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: my_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@imanzi.com
+      PGADMIN_DEFAULT_PASSWORD: password
+      PGADMIN_LISTEN_ADDRESS: 0.0.0.0
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres_db
     networks:
       - storefront-networks
 

@@ -133,4 +133,4 @@ build/
 yarn-error.log
 package-lock.json
 yarn.lock
-src/utils/files/query2_ref.txt
+.idea/

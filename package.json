@@ -17,7 +17,7 @@
 		"ts:dev": "ts-node-dev --respawn --rs --watch src src/server.ts",
 		"start": "node build/server.js",
 		"build": "tsc && npm run copy-files",
-    	"copy-files": "cp -r ./src/utils/files/* ./build/utils/helpers",
+		"copy-files": "cp -r ./src/utils/helpers/* ./build/utils/helpers/",
 		"clean": "rimraf build",
 		"prebuild": "yarn clean",
 		"db:migrate": "sequelize db:migrate",

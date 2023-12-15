@@ -5,7 +5,7 @@ const fs = require("fs");
 module.exports = () => {
 	const lang = ["ar", "en", "fr", "in", "pt", "es", "tr", "js"];
 	const raw = fs
-		.readFileSync(path.join(__dirname, "query2_ref.txt"))
+		.readFileSync(path.join(__dirname, "/files/query2_ref.txt"))
 		.toString();
 	const rawData = raw.split("\n");
 	const tweets = [];

@@ -18,6 +18,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
 		static associate(models: any): void {
 			// define association here
 			Rule.belongsToMany(models.Tweet, { through: "TweetRules" });
+			models.Tweet.belongsToMany(Rule, { through: "TweetRules" });
 		}
 	}
 
