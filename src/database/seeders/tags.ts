@@ -1,4 +1,4 @@
-const loadData = require("./../../utils/helpers/loadData.js");
+const loadData = require("./../../utils/helpers/readHashTags.ts");
 
 const data = loadData();
 
@@ -13,7 +13,7 @@ module.exports = {
 		 *   isBetaMember: false
 		 * }], {});
 		 */
-		await queryInterface.bulkInsert("Tweets", data.tweets, {});
+		await queryInterface.bulkInsert("Tags", data, {});
 	},
 
 	down: async (queryInterface) => {
@@ -23,6 +23,6 @@ module.exports = {
 		 * Example:
 		 * await queryInterface.bulkDelete('People', null, {});
 		 */
-		await queryInterface.bulkDelete("Tweets", null, {});
+		await queryInterface.bulkDelete("Tags", null, {});
 	},
 };

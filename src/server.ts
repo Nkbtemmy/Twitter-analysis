@@ -5,6 +5,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import morgan from "morgan";
 import db from "./database/models";
+import router from "./routers";
 
 dotenv.config();
 const app = express();
@@ -16,7 +17,7 @@ app.use(express.json());
 app.use(cors());
 
 if (process.env.NODE_ENV != "production") app.use(morgan("dev"));
-// app.use(router);
+app.use(router);
 
 export async function startServer() {
 	try {
