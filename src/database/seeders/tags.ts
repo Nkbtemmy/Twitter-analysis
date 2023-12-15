@@ -1,6 +1,6 @@
-const loadData = require("./../../utils/helpers/readHashTags.ts");
+const loadDatas = require("./../../utils/helpers/readHashTags.ts");
 
-const data = loadData();
+const datas = loadDatas();
 
 module.exports = {
 	up: async (queryInterface) => {
@@ -13,7 +13,7 @@ module.exports = {
 		 *   isBetaMember: false
 		 * }], {});
 		 */
-		await queryInterface.bulkInsert("Tags", data, {});
+		await queryInterface.bulkInsert("Tags", datas, {});
 	},
 
 	down: async (queryInterface) => {
