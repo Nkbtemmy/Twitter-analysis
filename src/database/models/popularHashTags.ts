@@ -1,14 +1,14 @@
 import { Model } from "sequelize";
 
 interface TagAttributes {
-	id: number; 
+	id: number;
 	id_str: string;
 	name: string;
 }
 
 module.exports = (sequelize: any, DataTypes: any) => {
 	class Tag extends Model<TagAttributes> implements TagAttributes {
-		id!: number; 
+		id!: number;
 		id_str!: string;
 		name!: string;
 
@@ -21,10 +21,10 @@ module.exports = (sequelize: any, DataTypes: any) => {
 	Tag.init(
 		{
 			id: {
-                type: DataTypes.INTEGER,
-                primaryKey: true,
-                autoIncrement: true,
-            },
+				type: DataTypes.INTEGER,
+				primaryKey: true,
+				autoIncrement: true,
+			},
 			id_str: {
 				type: DataTypes.STRING,
 				allowNull: false,

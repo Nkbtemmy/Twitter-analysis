@@ -1,7 +1,7 @@
 import { Model, Optional } from "sequelize";
 
 interface TweetAttributes {
-	id: number; 
+	id: number;
 	created_at: string;
 	id_str: string;
 	text: string;
@@ -51,7 +51,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
 		extends Model<TweetAttributes, TweetCreationAttributes>
 		implements TweetAttributes
 	{
-		id!: number; 
+		id!: number;
 		created_at!: string;
 		id_str!: string;
 		text!: string;
@@ -91,9 +91,9 @@ module.exports = (sequelize: any, DataTypes: any) => {
 					name: "userId",
 				},
 			});
-			// Self-referential for in_reply_to 
-			Tweet.belongsTo(Tweet, {as: 'parentTweet'}); 
-			Tweet.belongsToMany(models.Rule, {through: "TweetRules"});
+			// Self-referential for in_reply_to
+			Tweet.belongsTo(Tweet, { as: "parentTweet" });
+			Tweet.belongsToMany(models.Rule, { through: "TweetRules" });
 		}
 	}
 

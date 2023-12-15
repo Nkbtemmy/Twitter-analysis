@@ -5,7 +5,7 @@ const request = supertest(app);
 
 describe("Test app", () => {
 	it("Is app on", async () => {
-		const response = await request.get("/");
+		const response = await request.get("/heartbeat");
 		expect(response.status).toBe(200);
 		expect(response.body).toBeDefined();
 	});

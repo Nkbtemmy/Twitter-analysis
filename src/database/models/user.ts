@@ -1,7 +1,7 @@
 import { Model, Optional } from "sequelize";
 
 interface UserAttributes {
-	id: number; 
+	id: number;
 	id_str: string;
 	name: string;
 	screen_name: string;
@@ -34,7 +34,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
 		extends Model<UserAttributes, UserCreationAttributes>
 		implements UserAttributes
 	{
-		id!: number; 
+		id!: number;
 		id_str!: string;
 		name!: string;
 		screen_name!: string;
@@ -69,7 +69,8 @@ module.exports = (sequelize: any, DataTypes: any) => {
 	}
 
 	User.init(
-		{   id: {
+		{
+			id: {
 				type: DataTypes.INTEGER,
 				primaryKey: true,
 				autoIncrement: true,

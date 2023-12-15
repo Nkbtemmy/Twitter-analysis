@@ -1,29 +1,29 @@
 import { Model } from "sequelize";
 
 interface RuleAttributes {
-    id: number; 
-    id_str: string;
-    tag: string;
-    rule_id: number; 
+	id: number;
+	id_str: string;
+	tag: string;
+	rule_id: number;
 }
 
 module.exports = (sequelize: any, DataTypes: any) => {
 	class Rule extends Model<RuleAttributes> implements RuleAttributes {
-        id!: number; 
-        id_str!: string;
-        tag!: string;
-        rule_id!: number; 
+		id!: number;
+		id_str!: string;
+		tag!: string;
+		rule_id!: number;
 
 		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		static associate(models: any): void {
 			// define association here
-            Rule.belongsToMany(models.Tweet, {through: "TweetRules"})
+			Rule.belongsToMany(models.Tweet, { through: "TweetRules" });
 		}
 	}
 
 	Rule.init(
 		{
-            id: {
+			id: {
 				type: DataTypes.INTEGER,
 				primaryKey: true,
 				autoIncrement: true,
@@ -32,13 +32,13 @@ module.exports = (sequelize: any, DataTypes: any) => {
 				type: DataTypes.STRING,
 				allowNull: false,
 			},
-            tag: {
-                type: DataTypes.STRING,
-            },
-            rule_id: {
-                type: DataTypes.BIGINT,
-                primaryKey: true,
-            },
+			tag: {
+				type: DataTypes.STRING,
+			},
+			rule_id: {
+				type: DataTypes.BIGINT,
+				primaryKey: true,
+			},
 		},
 		{
 			sequelize,
@@ -46,7 +46,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
 			tableName: "Rule",
 		},
 	);
-    // BeforeCreate hook to set id_str as a string copy of id
+	// BeforeCreate hook to set id_str as a string copy of id
 	Rule.beforeCreate((instance: Rule) => {
 		instance.id_str = instance.id.toString();
 	});
