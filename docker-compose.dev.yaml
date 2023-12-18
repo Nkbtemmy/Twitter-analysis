@@ -1,27 +1,29 @@
 version: "3"
 services:
-  # app:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile
-  #     target: dev
-  #   image: "twitter-analysis-app"
-  #   restart: on-failure
-  #   ports:
-  #     - "2025:2025"
-  #   env_file:
-  #     - .env
-  #   environment:
-  #     HOST: app:2025
-  #     PORT: 2025
-  #     DATABASE_URL: postgres://POSTGRES_USER:POSTGRES_PASSWORD@postgres_db:5432/POSTGRES_DB
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    image: "twitter-analysis-app"
+    restart: on-failure
+    ports:
+      - "2025:2025"
+    env_file:
+      - .env
+    environment:
+      HOST: app:2025
+      PORT: 2025
+      DATABASE_URL: postgres://POSTGRES_USER:POSTGRES_PASSWORD@postgres_db:5432/POSTGRES_DB
 
-  #   depends_on:
-  #     - postgres_db
-  #   volumes:
-  #     - .:/usr/src/
-  #   networks:
-  #     - storefront-networks
+    depends_on:
+      - postgres_db
+    volumes:
+      - .:/usr/src/
+    command: >
+      bash -c "yarn db:migrate && yarn db:seed && yarn dev"
+    networks:
+      - storefront-networks
 
   postgres_db:
     image: postgres

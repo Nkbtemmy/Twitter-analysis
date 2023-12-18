@@ -13,3 +13,5 @@ services:
     env_file:
       - .env
     restart: on-failure
+    command: >
+      bash -c "yarn db:migrate && yarn db:seed && yarn start"
