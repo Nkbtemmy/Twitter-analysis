@@ -13,7 +13,7 @@ module.exports = {
 		 *   isBetaMember: false
 		 * }], {});
 		 */
-		await queryInterface.bulkInsert("Tags", datas, {});
+		// await queryInterface.bulkInsert("Tags", datas, {});
 	},
 
 	down: async (queryInterface) => {

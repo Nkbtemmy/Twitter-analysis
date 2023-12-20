@@ -10,13 +10,12 @@ module.exports = {
 				primaryKey: true,
 				type: Sequelize.BIGINT,
 			},
-			coordinates: { type: Sequelize.ARRAY(Sequelize.NUMBER) },
 			longitude: {
-				type: Sequelize.DECIMAL(10, 7), // Store longitude with high precision
+				type: Sequelize.DECIMAL(10, 7),
 				allowNull: false,
 			},
 			latitude: {
-				type: Sequelize.DECIMAL(10, 7), // Store latitude with high precision
+				type: Sequelize.DECIMAL(10, 7),
 				allowNull: false,
 			},
 		});
